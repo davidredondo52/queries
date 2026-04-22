@@ -39,6 +39,37 @@ See `schema.ts` for the complete database schema definition.
 npm run setup
 ```
 
+## Git Configuration
+
+This project is hosted on GitHub at [davidredondo52/queries](https://github.com/davidredondo52/queries).
+
+### Initial Setup
+
+```bash
+# Configure git user (if not already configured)
+git config user.email "davidredondo52@hotmail.com"
+git config user.name "David Redondo"
+
+# Add remote repository
+git remote add origin https://github.com/davidredondo52/queries.git
+
+# Push to GitHub
+git push -u origin master
+```
+
+### Pushing Changes
+
+```bash
+# Stage changes
+git add .
+
+# Commit changes
+git commit -m "Your commit message"
+
+# Push to GitHub
+git push
+```
+
 ## Working with Queries
 
 All query functions return Promises and follow these patterns:
