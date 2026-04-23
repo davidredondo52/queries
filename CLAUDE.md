@@ -93,6 +93,32 @@ export function getCustomerByEmail(db: Database, email: string): Promise<any> {
 }
 ```
 
+## GitHub Actions & Secrets
+
+This project uses GitHub Actions for CI/CD. The workflow is defined in `.github/workflows/ci.yml`.
+
+### Setting up the ANTHROPIC_API_KEY secret
+
+1. Go to your GitHub repository settings
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret**
+4. Add:
+   - **Name:** `ANTHROPIC_API_KEY`
+   - **Value:** Your Anthropic API key from https://console.anthropic.com/keys
+
+### Workflow Features
+
+The CI/CD pipeline automatically:
+- Runs on push to `master`, `main`, or `develop` branches
+- Runs on pull requests to those branches
+- Tests on Node.js 18.x and 20.x
+- Installs dependencies
+- Builds TypeScript
+- Runs tests
+- Makes `ANTHROPIC_API_KEY` available to all steps via environment variables
+
+The secret is never exposed in logs and is only accessible during workflow execution.
+
 ## Critical Guidance
 
 - Critical: All database queries must be written in the ./src/queries dir
